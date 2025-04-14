@@ -1,0 +1,35 @@
+name: ci
+
+run-name: ${{ github.actor }} triggered CI
+
+on: [push]
+
+permissions:
+  contents: read
+  
+jobs:
+  test-all:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: Set up env
+        run: |
+          sudo apt-get update
+          sudo apt-get install cmake
+      - name: Configure build
+        run: |
+          mkdir build && cd build
+          cmake ../ -DCMAKE_INSTALL_PREFIX=$HOME/.local
+      - name: Build and install
+        run: |
+          cd build
+          cmake --build .
+          cmake --install .
+      - name: Run tests
+        run: |
+          cd build
+          ctest --test-dir tests
+          
+          
