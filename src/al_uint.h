@@ -5,6 +5,7 @@
 #include <climits>
 #include <string>
 #include <limits>
+#include <cstdint>
 
 template<typename word_t, typename accum_t>
 class al_uint_t_  {
