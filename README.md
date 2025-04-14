@@ -1,5 +1,7 @@
 # 2023 C++ coding challenge
 
+![CI status](https://github.com/Silvan-K/2023-cpp-coding-challenge/actions/workflows/ci.yaml/badge.svg)
+
 The tasks for this challenge were the following:
 
 ## 1) Implement a datatype for arbitrarily large integers
